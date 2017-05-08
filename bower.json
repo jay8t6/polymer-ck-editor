@@ -1,5 +1,6 @@
 {
   "name": "ck-editor",
+  "version": "0.0.1",
   "description": "A ck-editor polymer element.",
   "main": "ck-editor.html",
   "dependencies": {
