@@ -1,0 +1,76 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="ck-editor-import.html">
+
+<!--
+`ck-editor`
+A ck-editor polymer element.
+
+@demo demo/index.html
+-->
+
+<dom-module id="ck-editor">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <div id="container"></div>
+  </template>
+
+  <script>
+    Polymer({
+
+      /* global CKEDITOR */
+
+      is: 'ck-editor',
+
+      properties: {
+        isEditorLoaded: {
+          type: Boolean,
+          value: false
+        },
+        config: Object,
+        data: String,
+        dataJSON: Object,
+        editor: Object
+      },
+
+      ready: function() {
+
+        if (this.dataJSON) {
+          this.data = JSON.parse(this.dataJSON).content;
+        }
+
+        this.editor = CKEDITOR.appendTo(this.$.container, this.config);
+
+        CKEDITOR.on('instanceReady', function(e) {
+          this.isEditorLoaded = true;
+          if (this.data) {
+            this.editor.insertHtml(this.data);
+            this.data = null;
+          }
+        }.bind(this));
+      },
+
+      dataJSONChanged: function() {
+        if (this.dataJSON) {
+          this.setData(JSON.parse(this.dataJSON).content);
+        }
+      },
+
+      getData: function() {
+        return this.editor.getData().trim();
+      },
+
+      setData: function(dataToSet) {
+        if (!this.isEditorLoaded) {
+          this.data = dataToSet;
+        } else {
+          this.editor.insertHtml(dataToSet);
+        }
+      }
+
+    });
+  </script>
+</dom-module>

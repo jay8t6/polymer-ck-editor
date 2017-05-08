@@ -1,16 +1,21 @@
-# polymer-ck-editor
-The [CK Editor](http://ckeditor.com/) as a reusable [Polymer Element](https://www.polymer-project.org/).
+# \<ck-editor\>
 
-## Trying it out
+A ck-editor polymer element.
+
+## Install the Polymer-CLI
+
+First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
+
+## Viewing Your Element
+
 ```
-bower install
-npm install
-npm start
+$ polymer serve
 ```
-Then visit [http://localhost:8080](http://localhost:8080) with your web browser.
 
-## Note
-Currently does not work in Chrome 40 with Polymer 0.5.5 and CK Editor 4.4.7.
+## Running Tests
 
-## Credits
-A renamed and tidied version of the [votingsystem-texteditor](https://github.com/votingsystem/votingsystem-texteditor) component
+```
+$ polymer test
+```
+
+Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.

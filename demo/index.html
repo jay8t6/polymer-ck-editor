@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>ck-editor demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../paper-button/paper-button.html">
+    <link rel="import" href="../../paper-input/paper-textarea.html">
+    <link rel="import" href="../ck-editor.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .vertical-section-container {
+        max-width: 800px;
+      }
+      paper-button {
+        background-color: #40bd62;
+        color: white;
+        margin: 20px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic ck-editor demo</h3>
+      <demo-snippet>
+        <template id="app" is="dom-bind">
+          <ck-editor></ck-editor>
+          <paper-button on-tap="getData">Get Data</paper-button>
+          <br/><br/>
+          <paper-textarea></paper-textarea>
+          <paper-button on-tap="setData">Set Data</paper-button>
+        </template>
+      </demo-snippet>
+    </div>
+    <script>
+      var app = document.querySelector('#app');
+      app.getData = function() {
+        var editor = document.querySelector('ck-editor');
+        var textarea = document.querySelector('paper-textarea');
+        textarea.value = editor.getData();
+      };
+      app.setData = function() {
+        var editor = document.querySelector('ck-editor');
+        var textarea = document.querySelector('paper-textarea');
+        editor.setData(textarea.value);
+      };
+    </script>
+  </body>
+</html>

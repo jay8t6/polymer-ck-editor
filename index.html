@@ -1,28 +1,16 @@
 <!doctype html>
-<html lang="">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CK Editor as a Polymer Element</title>
+    <title>ck-editor</title>
 
-  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
 
-  <link rel="import" href="bower_components/polymer/polymer.html">
-  <link rel="import" href="ck-editor/ck-editor.html">
-
-  <style>
-    h1 { padding-left: 100px; }
-    form { padding: 0 100px; }
-  </style>
-</head>
-
-<body unresolved>
-  <h1>CK Editor as a Polymer Element</h1>
-  <form>
-    <ck-editor></ck-editor>
-  </form>
-</body>
-
+    <link rel="import" href="../iron-component-page/iron-component-page.html">
+  </head>
+  <body>
+    <iron-component-page src="ck-editor.html"></iron-component-page>
+  </body>
 </html>
